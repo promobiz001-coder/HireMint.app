@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create your account — HireMint</title>
+  <meta name="description" content="Register on HireMint to hire or get hired by elite freelancers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">H</span> HireMint</a>
+      <nav class="nav">
+        <a href="categories.html">Categories</a>
+        <a href="talent.html">Talent</a>
+        <a href="how-it-works.html">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-ghost">← Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="card-panel" style="max-width: 640px;">
+      <h1>Create your account</h1>
+      <p class="sub">Join HireMint in under a minute. Already a member? <a href="#" style="color:var(--mint);">Sign in</a></p>
+
+      <div class="role-toggle">
+        <button type="button" class="active" data-role="freelancer">I'm a freelancer</button>
+        <button type="button" data-role="client">I'm a client</button>
+      </div>
+
+      <form id="register-form">
+        <div class="form-grid">
+          <div class="field">
+            <label>Full name</label>
+            <div class="field-input"><span>👤</span><input name="fullName" type="text" placeholder="Jane Doe" required /></div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <div class="field-input"><span>✉️</span><input name="email" type="email" placeholder="you@company.com" required /></div>
+          </div>
+          <div class="field">
+            <label>Phone number</label>
+            <div class="field-input"><span>📞</span><input name="phone" type="tel" placeholder="+1 555 123 4567" required /></div>
+          </div>
+          <div class="field">
+            <label>Country</label>
+            <div class="field-input"><span>🌍</span>
+              <select name="country" required>
+                <option value="">Select country</option>
+                <option>United States</option><option>United Kingdom</option><option>Canada</option>
+                <option>Australia</option><option>Germany</option><option>France</option>
+                <option>Spain</option><option>Netherlands</option><option>India</option>
+                <option>Nigeria</option><option>South Africa</option><option>Kenya</option>
+                <option>Brazil</option><option>Mexico</option><option>Argentina</option>
+                <option>Japan</option><option>Singapore</option><option>Philippines</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>City / State</label>
+            <div class="field-input"><span>📍</span><input name="city" type="text" placeholder="e.g. New York, US" required /></div>
+          </div>
+          <div class="field">
+            <label data-role-label>Headline / Specialty</label>
+            <div class="field-input"><span>💼</span><input name="headline" data-role-input type="text" placeholder="e.g. Senior React Developer" required /></div>
+          </div>
+          <div class="field" data-freelancer-only>
+            <label>Primary category</label>
+            <div class="field-input"><span>📂</span>
+              <select name="category">
+                <option value="">Select your category</option>
+                <option value="development">Development</option>
+                <option value="design">Design</option>
+                <option value="writing">Writing</option>
+                <option value="marketing">Marketing</option>
+                <option value="video">Video</option>
+                <option value="audio">Audio</option>
+                <option value="data">Data</option>
+                <option value="business">Business</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" data-freelancer-only>
+            <label>Years of experience</label>
+            <div class="field-input"><span>⏳</span>
+              <select name="experience">
+                <option value="">Select experience</option>
+                <option>Less than 1 year</option>
+                <option>1–2 years</option>
+                <option>3–5 years</option>
+                <option>6–10 years</option>
+                <option>10+ years</option>
+              </select>
+            </div>
+          </div>
+          <div class="field full" data-freelancer-only>
+            <label>Top skills (comma-separated)</label>
+            <div class="field-input"><span>🛠️</span><input name="skills" type="text" placeholder="e.g. React, TypeScript, Figma" /></div>
+          </div>
+          <div class="field">
+            <label>Where did you hear about us?</label>
+            <div class="field-input"><span>📣</span>
+              <select name="referral" required>
+                <option value="">Choose one</option>
+                <option>Google search</option>
+                <option>Friend or colleague</option>
+                <option>Social media (Instagram, X, TikTok…)</option>
+                <option>YouTube</option>
+                <option>LinkedIn</option>
+                <option>Podcast or blog</option>
+                <option>Online ad</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="field-input"><span>🔒</span><input name="password" type="password" placeholder="At least 8 characters" required minlength="8" /></div>
+          </div>
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" required />
+          <span>I agree to the <a href="#" style="color:var(--mint);">Terms</a> and <a href="#" style="color:var(--mint);">Privacy Policy</a>.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Create account →</button>
+        <p class="fine-print">Freelancers: next step is a one-time purchase of the HireMint Freelancer Handbook.</p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Success modal -->
+  <div class="modal-overlay" id="success-modal" aria-hidden="true">
+    <div class="modal">
+      <div class="check-big">✓</div>
+      <h2>Registration successful!</h2>
+      <p class="verified-badge">🛡️ Verified freelancer</p>
+      <p style="color: var(--muted); margin-top: 14px; font-size: 0.92rem;">
+        Welcome to HireMint, <span id="modal-name">friend</span>! Your profile has been created and verified.
+      </p>
+      <div class="handbook-notice">
+        <strong>One last step</strong>
+        <p>To activate your account and start receiving job invitations, every freelancer must purchase the <strong>HireMint Freelancer Handbook</strong> — a one-time $2.99 fee. It includes our community guidelines, payout setup, dispute process and the playbook our top earners use.</p>
+      </div>
+      <button class="btn btn-primary btn-block" id="continue-to-payment">Continue to payment →</button>
+    </div>
+  </div>
+
+  <script type="module" src="supabase.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

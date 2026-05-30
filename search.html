@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search talent — HireMint</title>
+  <meta name="description" content="Search HireMint for freelancers by skill, role or specialty." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">H</span> HireMint</a>
+      <nav class="nav">
+        <a href="categories.html">Categories</a>
+        <a href="talent.html">Talent</a>
+        <a href="how-it-works.html">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <a href="register.html" class="btn btn-ghost">Sign in</a>
+        <a href="register.html" class="btn btn-primary">Get started</a>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="categories.html">Categories</a>
+      <a href="talent.html">Talent</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="register.html">Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 48px 0 8px;">
+      <div class="container hero-inner">
+        <span class="eyebrow">🔍 Search results</span>
+        <h1 id="search-heading" style="font-size: clamp(1.6rem, 4vw, 2.4rem);">Searching…</h1>
+        <form id="hero-search" class="search-bar" action="search.html" method="get">
+          <input type="text" name="q" id="search-input" placeholder="Search freelancers…" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 32px;">
+      <div class="container">
+        <div class="grid freelancer-grid" id="results-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">© 2026 HireMint. All rights reserved.</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const q = (params.get("q") || "").trim();
+      document.getElementById("search-input").value = q;
+
+      const heading = document.getElementById("search-heading");
+      const grid = document.getElementById("results-grid");
+
+      if (!q) {
+        heading.textContent = "Start by typing a skill or role";
+        grid.innerHTML = "";
+        return;
+      }
+
+      const needle = q.toLowerCase();
+      const results = window.HIREMINT_FREELANCERS.filter(f =>
+        f.name.toLowerCase().includes(needle) ||
+        f.role.toLowerCase().includes(needle) ||
+        f.category.toLowerCase().includes(needle) ||
+        f.tags.some(t => t.toLowerCase().includes(needle))
+      );
+
+      heading.innerHTML = results.length
+        ? `${results.length} result${results.length > 1 ? "s" : ""} for <span class="accent">"${q}"</span>`
+        : `No matches for <span class="accent">"${q}"</span>`;
+
+      grid.innerHTML = results.length
+        ? results.map(window.renderFreelancerCard).join("")
+        : `<p style="grid-column:1/-1; text-align:center; color:var(--muted);">Try a broader term, or <a href="talent.html" style="color:var(--mint);">browse all talent</a>.</p>`;
+    })();
+  </script>
+</body>
+</html>

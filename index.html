@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HireMint — Hire elite freelancers, on demand</title>
+  <meta name="description" content="HireMint connects you with top freelancers in development, design, writing, and marketing. Browse talent or get hired." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">H</span> HireMint
+      </a>
+      <nav class="nav">
+        <a href="categories.html">Categories</a>
+        <a href="talent.html">Talent</a>
+        <a href="how-it-works.html">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <a href="register.html" class="btn btn-ghost">Sign in</a>
+        <a href="register.html" class="btn btn-primary">Get started</a>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="categories.html">Categories</a>
+      <a href="talent.html">Talent</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="register.html">Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <span class="eyebrow">✦ 12,000+ vetted freelancers</span>
+        <h1>Hire elite freelancers,<br /><span class="accent">delivered on demand.</span></h1>
+        <p>From world-class developers to award-winning designers — find the right talent for any project, in minutes not weeks.</p>
+        <form id="hero-search" class="search-bar" action="search.html" method="get">
+          <input type="text" name="q" placeholder="Try 'React developer' or 'logo designer'" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div class="hero-stats">
+          <div class="stat"><div class="num">12k+</div><div class="label">Freelancers</div></div>
+          <div class="stat"><div class="num">98%</div><div class="label">Satisfaction</div></div>
+          <div class="stat"><div class="num">24h</div><div class="label">Avg. match</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Explore by category</h2>
+          <p>Find skilled professionals across every discipline your project needs.</p>
+        </div>
+        <div class="grid cat-grid">
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">💻</div>
+            <h3>Development</h3>
+            <p>Web, mobile, backend & DevOps</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">🎨</div>
+            <h3>Design</h3>
+            <p>UI/UX, branding & illustration</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">✍️</div>
+            <h3>Writing</h3>
+            <p>Content, copy & technical writing</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">📈</div>
+            <h3>Marketing</h3>
+            <p>SEO, social & growth strategy</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">🎬</div>
+            <h3>Video</h3>
+            <p>Editing, motion & animation</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">🎙️</div>
+            <h3>Audio</h3>
+            <p>Voiceover, mixing & production</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">📊</div>
+            <h3>Data</h3>
+            <p>Analytics, ML & data engineering</p>
+          </a>
+          <a class="cat-card" href="#freelancers">
+            <div class="cat-icon">💼</div>
+            <h3>Business</h3>
+            <p>Consulting, ops & finance</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Freelancers -->
+    <section id="freelancers" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured freelancers</h2>
+          <p>Hand-picked top talent ready to take on your next project.</p>
+        </div>
+        <div class="grid freelancer-grid">
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">SA</div>
+              <div>
+                <div class="fl-name">Sarah A.</div>
+                <div class="fl-role">Senior React Developer</div>
+              </div>
+              <div class="fl-rate">$85/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Next.js</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 4.9 · 142 jobs</span><span>Top Rated</span></div>
+          </article>
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">MK</div>
+              <div>
+                <div class="fl-name">Marcus K.</div>
+                <div class="fl-role">Product Designer</div>
+              </div>
+              <div class="fl-rate">$70/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">Figma</span><span class="tag">UI/UX</span><span class="tag">Branding</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 5.0 · 89 jobs</span><span>Rising Talent</span></div>
+          </article>
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">EL</div>
+              <div>
+                <div class="fl-name">Elena L.</div>
+                <div class="fl-role">Content Strategist</div>
+              </div>
+              <div class="fl-rate">$60/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">SEO</span><span class="tag">Copywriting</span><span class="tag">Strategy</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 4.8 · 203 jobs</span><span>Top Rated</span></div>
+          </article>
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">DR</div>
+              <div>
+                <div class="fl-name">David R.</div>
+                <div class="fl-role">Full-Stack Engineer</div>
+              </div>
+              <div class="fl-rate">$95/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">Node.js</span><span class="tag">AWS</span><span class="tag">Python</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 4.9 · 175 jobs</span><span>Top Rated</span></div>
+          </article>
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">JM</div>
+              <div>
+                <div class="fl-name">Julia M.</div>
+                <div class="fl-role">Motion Designer</div>
+              </div>
+              <div class="fl-rate">$75/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">After Effects</span><span class="tag">3D</span><span class="tag">Animation</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 5.0 · 67 jobs</span><span>Rising Talent</span></div>
+          </article>
+          <article class="fl-card">
+            <div class="fl-top">
+              <div class="fl-avatar">TO</div>
+              <div>
+                <div class="fl-name">Tomás O.</div>
+                <div class="fl-role">Growth Marketer</div>
+              </div>
+              <div class="fl-rate">$80/h</div>
+            </div>
+            <div class="fl-tags"><span class="tag">Paid Ads</span><span class="tag">Analytics</span><span class="tag">CRO</span></div>
+            <div class="fl-meta"><span><span class="star">★</span> 4.9 · 118 jobs</span><span>Top Rated</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>How HireMint works</h2>
+          <p>Three simple steps to your perfect freelancer match.</p>
+        </div>
+        <div class="grid steps">
+          <div class="step">
+            <h3>Post your project</h3>
+            <p>Tell us what you need. Be as specific or as open as you like — our system handles the rest.</p>
+          </div>
+          <div class="step">
+            <h3>Match with talent</h3>
+            <p>Get matched with top freelancers within 24 hours, ranked by fit, rating, and availability.</p>
+          </div>
+          <div class="step">
+            <h3>Hire & collaborate</h3>
+            <p>Chat, share files, and pay securely — all in one place. Only release funds when you're happy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="cta">
+        <h2>Ready to build something great?</h2>
+        <p>Join HireMint today and unlock a world of vetted, top-tier freelance talent.</p>
+        <div class="cta-actions">
+          <a href="register.html" class="btn btn-primary">Get started — $2.99</a>
+          <a href="#freelancers" class="btn btn-outline">Browse talent</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo"><span class="logo-mark">H</span> HireMint</div>
+          <p style="color: var(--muted); margin-top: 12px; font-size: 0.88rem; max-width: 280px;">The smarter way to hire and get hired by elite freelancers worldwide.</p>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="talent.html">Talent</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 HireMint. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse categories — HireMint</title>
+  <meta name="description" content="Browse freelancers by category on HireMint — development, design, writing, marketing and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">H</span> HireMint</a>
+      <nav class="nav">
+        <a href="categories.html">Categories</a>
+        <a href="talent.html">Talent</a>
+        <a href="how-it-works.html">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <a href="register.html" class="btn btn-ghost">Sign in</a>
+        <a href="register.html" class="btn btn-primary">Get started</a>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="categories.html">Categories</a>
+      <a href="talent.html">Talent</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="register.html">Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 56px 0 16px;">
+      <div class="container hero-inner">
+        <span class="eyebrow">📂 Categories</span>
+        <h1>Find the right <span class="accent">skill set</span> for your project</h1>
+        <p>Explore freelancers across 8 disciplines — from engineers and designers to writers, marketers and consultants.</p>
+        <form id="hero-search" class="search-bar" action="search.html" method="get">
+          <input type="text" name="q" placeholder="Search for a skill (e.g. 'React', 'logo')" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="container">
+        <div class="grid cat-grid" id="categories-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">© 2026 HireMint. All rights reserved.</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script>
+    document.getElementById("categories-grid").innerHTML = window.HIREMINT_CATEGORIES.map(c => `
+      <a class="cat-card" href="talent.html?cat=${c.slug}">
+        <div class="cat-icon">${c.icon}</div>
+        <h3>${c.title}</h3>
+        <p>${c.desc}</p>
+      </a>
+    `).join("");
+  </script>
+</body>
+</html>

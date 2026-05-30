@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Browse talent — HireMint</title>
+  <meta name="description" content="Discover top-rated freelancers on HireMint. Filter by category and view profiles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">H</span> HireMint</a>
+      <nav class="nav">
+        <a href="categories.html">Categories</a>
+        <a href="talent.html">Talent</a>
+        <a href="how-it-works.html">How it works</a>
+      </nav>
+      <div class="header-actions">
+        <a href="register.html" class="btn btn-ghost">Sign in</a>
+        <a href="register.html" class="btn btn-primary">Get started</a>
+        <button class="menu-toggle" data-menu-toggle aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav container" data-mobile-nav>
+      <a href="categories.html">Categories</a>
+      <a href="talent.html">Talent</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="register.html">Sign in</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 56px 0 16px;">
+      <div class="container hero-inner">
+        <span class="eyebrow">👥 Talent</span>
+        <h1>Meet <span class="accent">elite freelancers</span></h1>
+        <p id="talent-sub">Hand-picked, vetted, and ready to work on your next project.</p>
+        <form id="hero-search" class="search-bar" action="search.html" method="get">
+          <input type="text" name="q" placeholder="Try 'designer', 'developer', 'writer'…" />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 32px;">
+      <div class="container">
+        <div id="cat-pills" style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px;"></div>
+        <div class="grid freelancer-grid" id="talent-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-bottom">© 2026 HireMint. All rights reserved.</div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const cat = params.get("cat");
+      const all = window.HIREMINT_FREELANCERS;
+      const list = cat ? all.filter(f => f.category === cat) : all;
+
+      const pills = [{ slug: "", title: "All" }, ...window.HIREMINT_CATEGORIES];
+      document.getElementById("cat-pills").innerHTML = pills.map(p => {
+        const active = (p.slug || "") === (cat || "");
+        const cls = active ? "btn btn-primary" : "btn btn-outline";
+        return `<a class="${cls}" style="padding:6px 14px; font-size:0.82rem;" href="talent.html${p.slug ? "?cat=" + p.slug : ""}">${p.title}</a>`;
+      }).join("");
+
+      if (cat) {
+        const c = window.HIREMINT_CATEGORIES.find(x => x.slug === cat);
+        if (c) document.getElementById("talent-sub").textContent = `${list.length} ${c.title} freelancers available now.`;
+      }
+
+      document.getElementById("talent-grid").innerHTML = list.length
+        ? list.map(window.renderFreelancerCard).join("")
+        : `<p style="grid-column:1/-1; text-align:center; color:var(--muted);">No freelancers in this category yet.</p>`;
+    })();
+  </script>
+</body>
+</html>

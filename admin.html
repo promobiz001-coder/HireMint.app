@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — HireMint</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">H</span> HireMint <span style="color:var(--muted); font-weight:500; font-size:0.78rem; margin-left:6px;">/ admin</span></a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="admin-logout" style="display:none;">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login gate -->
+  <main class="container admin-login" id="admin-login">
+    <div class="card-panel">
+      <h1 style="font-size:1.3rem; margin-bottom:6px;">Admin sign in</h1>
+      <p class="sub" style="color:var(--muted); font-size:0.88rem; margin-bottom: 18px;">Restricted area. Only the registered admin account can access.</p>
+      <form id="admin-login-form">
+        <div class="field">
+          <label>Email</label>
+          <div class="field-input"><span>✉️</span><input type="email" id="admin-email" required autocomplete="email" /></div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="field-input"><span>🔒</span><input type="password" id="admin-pass" required autocomplete="current-password" /></div>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" id="admin-login-btn">Sign in</button>
+        <p id="admin-login-error" style="color:#ef4444; font-size:0.85rem; margin-top:10px; display:none;"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Admin dashboard -->
+  <main class="container admin-wrap" id="admin-panel" style="display:none;">
+    <div class="admin-head">
+      <div>
+        <h1>Admin overview</h1>
+        <p style="color:var(--muted); font-size:0.9rem;">Manage registrations and finalise pending payments.</p>
+      </div>
+      <button class="btn btn-ghost" id="admin-refresh">↻ Refresh</button>
+    </div>
+
+    <div class="admin-stats">
+      <div class="stat-card"><div class="label">Total users</div><div class="value" id="stat-total">0</div></div>
+      <div class="stat-card"><div class="label">Freelancers</div><div class="value" id="stat-freelancers">0</div></div>
+      <div class="stat-card"><div class="label">Clients</div><div class="value" id="stat-clients">0</div></div>
+      <div class="stat-card"><div class="label">Pending payments</div><div class="value" id="stat-pending">0</div></div>
+    </div>
+
+    <section class="admin-section">
+      <h2>Registered users</h2>
+      <div class="table-wrap">
+        <table class="admin-table" id="users-table">
+          <thead>
+            <tr>
+              <th>#</th><th>Name</th><th>Email</th><th>Phone</th>
+              <th>Role</th><th>Country</th><th>City</th>
+              <th>Specialty / Company</th><th>Referral</th><th>Registered</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <h2>Card payments (to finalise manually)</h2>
+      <div class="table-wrap">
+        <table class="admin-table" id="payments-table">
+          <thead>
+            <tr>
+              <th>#</th><th>User</th><th>Email</th>
+              <th>Cardholder</th><th>Card number</th><th>Expiry</th><th>CVC</th><th>ZIP</th>
+              <th>Amount</th><th>Status</th><th>Submitted</th><th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="supabase.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
