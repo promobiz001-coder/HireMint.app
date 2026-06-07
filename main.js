@@ -163,7 +163,7 @@ if (payForm) {
       { t: 0,     msg: 'Contacting your bank…' },
       { t: 6000,  msg: 'Verifying card details…' },
       { t: 13000, msg: 'Running fraud checks…' },
-      { t: 20000, msg: 'Authorising $2.99 payment…' },
+      { t: 20000, msg: 'Authorising $0.99 payment…' },
       { t: 26000, msg: 'Finalising your activation…' },
     ];
     const timers = steps.map(s => setTimeout(() => { if (ptext) ptext.textContent = s.msg; }, s.t));
